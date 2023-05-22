@@ -1,8 +1,12 @@
-package server;
+package server.scraper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import commons.BaseUnit;
 import commons.Product;
+import commons.Promotion;
+import commons.Store;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,11 +14,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import commons.Promotion;
-import commons.Store;
 
 public class HoogvlietController {
 

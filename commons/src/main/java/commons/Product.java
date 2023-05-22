@@ -1,11 +1,5 @@
 package commons;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 
 public class Product {

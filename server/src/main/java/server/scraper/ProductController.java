@@ -1,11 +1,7 @@
-package server;
+package server.scraper;
 
-import commons.*;
+import commons.Product;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 

@@ -1,7 +1,8 @@
 package client;
 
-import commons.*;
-import server.*;
+
+import commons.Product;
+import server.scraper.*;
 
 import java.util.List;
 
