@@ -10,7 +10,7 @@ import java.util.List;
 public class ServerUtils {
 
     private static final ServerUtils INSTANCE = new ServerUtils();
-    private final ProductController productController = ProductController.getInstance();
+    private final ProductScraper productScraper = ProductScraper.getInstance();
 
     private ServerUtils() {
     }
@@ -20,7 +20,7 @@ public class ServerUtils {
     }
 
     public List<Product> getAllProducts() {
-        return productController.getAllProducts();
+        return productScraper.getAllProducts();
     }
 
 }

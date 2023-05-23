@@ -15,13 +15,13 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
-public class HoogvlietController {
+public class HoogvlietScraper {
 
-    private final static HoogvlietController INSTANCE = new HoogvlietController();
+    private final static HoogvlietScraper INSTANCE = new HoogvlietScraper();
 
     private HttpURLConnection connection;
 
-    private HoogvlietController() {
+    private HoogvlietScraper() {
     }
 
     private void setUpServerConnection(int page, int pageSize) {
@@ -65,7 +65,7 @@ public class HoogvlietController {
         }
     }
 
-    public static HoogvlietController getInstance() {
+    public static HoogvlietScraper getInstance() {
         return INSTANCE;
     }
 
