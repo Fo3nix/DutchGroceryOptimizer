@@ -15,15 +15,19 @@ public class ProductScraper {
 
     private final HoogvlietScraper hoogvliet = HoogvlietScraper.getInstance();
 
+    private final List<Product> products = new LinkedList<>();
+
     private ProductScraper() {
     }
 
     public List<Product> getAllProducts() {
-        List<Product> products = new LinkedList<>();
 
         products.addAll(hoogvliet.getAllHoogvlietProducts());
 
         return products;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
 }

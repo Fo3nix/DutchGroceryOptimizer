@@ -25,8 +25,9 @@ The goal:
 - **Price**: A price is the amount of money that needs to be paid for a quantity of a product.
 
 ## User Stories
-- As a user I want to be able to search products by name
+- As a user I want to be able to search products by name and description
 - As a user I want to be able to search products by category
+- As a user I want to be able to sort the search results by price and name
 - As a user I want to be able to choose which stores I want to shop at
 - As a user I want to be able to add products to product boxes
 - As a user I want to be able to name product boxes
@@ -50,6 +51,9 @@ The goal:
 - The backend should be written in Java
 - The backend should use Spring Boot
 - The backend should use Spring Security
+  - For login/logout functionality
+  - This way a user can only see their own shopping carts
+  - 
 - The backend should use Spring Data JPA
 - The backend should use an PostgreSQL database as the amount of data will be large (so in-memory like H2 is not a good option)
 - The backend should use a REST API
@@ -70,6 +74,7 @@ The goal:
 - The database should have indexes on the name columns of the tables 
 
 ## Data Model
+TODO: Add data model
 ### Product
 - Has a 1 to many relationship with a category
 - Has a 1 to 1 relationship with a nutrition
@@ -81,26 +86,67 @@ The goal:
 
 - ID needs to be generated with store and store product id
 
-
 ### Promotion
 - Has a many to 1 relationship with a promotion type
+
+- ID needs to be created for database, but name is also unique
 
 ### Shopping Cart
 - Has a many to 1 relationship with a user
 - Has a 1 to many relationship with a product box
 
+
+
 ## REST API
-Tables of endpoints
+BASE URL: /api
+
+### Web pages
+Base URL: /
+
+- Login page
+- Register page
+- Home page
+- Search page
+- Product page
+- Shopping cart page
+- Account page
+
+| Method | Endpoint           | Description        |
+|--------|--------------------|:-------------------|
+| GET    | /                  | Home page          |
+| GET    | /login             | Login page         |
+| GET    | /register          | Register page      |
+| GET    | /search            | Search page        |
+| GET    | /product/{id}      | Product page       |
+| GET    | /shoppingcart/{id} | Shopping cart page |
+| GET    | /account           | Account page       |
+
 ### Product
+Base URL: /api/products
 
-// should have params for category, store, name
+- Get all products
+- Get a product by id
+- Search for products with a search term
+- Filter for products with a specific category
+- Filter for products with a specific store
+- Filter to see only products that have a promotion, with a specific promotion type
 
-| Method | Endpoint | Description |
-| ------ | -------- |:------------|
-| GET | /api/products | Get all products |
-| GET | /api/products/{id} | Get a product by id |
-| GET | /api/products/search | Search for products by name |
+| Method | Endpoint             | Description                 |
+|--------|----------------------|:----------------------------|
+| GET    | /api/products        | Get all products            |
+| GET    | /api/products/{id}   | Get a product by id         |
+| GET    | /api/products/search | Search for products by name |
 
+## Authorization - Authentication - Security
+Spring security can do:
+- User name and password authentication
+- SSO (Single Sign On) / OKTA / LDAP
+- App level Authorization
+- Intra App Authorization like OAuth
+- JWT (JSON Web Token) / OAuth2, but this is not used in this project. We do not need to limit the access to the API.
+
+### How to add spring security
+https://www.youtube.com/playlist?list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE
 
 
 
