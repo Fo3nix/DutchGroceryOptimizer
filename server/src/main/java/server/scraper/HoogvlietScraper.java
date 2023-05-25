@@ -51,9 +51,9 @@ public class HoogvlietScraper {
             URL url = new URL("https://www.hoogvliet.com/INTERSHOP/web/WFS/org-webshop-Site/nl_NL/-/EUR/ProcessTWProducts-GetTWProductsBySkus?products=" + SKUcommaString + "&format=json");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            connection.setRequestProperty("Accept", "text/plain");
+            connection.setRequestProperty("Accept", "json/application");
             connection.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36");
-            connection.setRequestProperty("robots", "noindex");
+            //connection.setRequestProperty("robots", "noindex");
 
             var dfsjhdf = connection.getContentType();
             var pizza = connection.getRequestProperty("user-agent");
@@ -227,7 +227,7 @@ public class HoogvlietScraper {
 
             int quantity = node.path("attributes").path(2).path("values").path(0).asInt();
 
-            Product product = new Product(sku, name, baseUnitEnum, quantity, Store.HOOGVLIET, price, brand, category, new Promotion());
+            Product product = new Product(name, sku, baseUnitEnum, quantity, Store.HOOGVLIET, price, brand, category, new Promotion());
             products.add(product);
         }
 

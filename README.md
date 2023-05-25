@@ -52,12 +52,28 @@ The goal:
 - The backend should use Spring Boot
 - The backend should use Spring Security
   - For login/logout functionality
-  - This way a user can only see their own shopping carts
+  - This way a user can only see their own shopping carts and personalize them
   - 
 - The backend should use Spring Data JPA
 - The backend should use an PostgreSQL database as the amount of data will be large (so in-memory like H2 is not a good option)
 - The backend should use a REST API
 - The backend should use Thymeleaf to render the frontend
+
+### Classes
+#### Product
+- id?
+- name
+- sku
+- description
+- category
+- nutrition
+- promotion
+- store
+- base unit
+- quantity
+- price
+- image url
+- product url
 
 ### Persistence
 - The database should have a table for products
@@ -94,7 +110,6 @@ TODO: Add data model
 ### Shopping Cart
 - Has a many to 1 relationship with a user
 - Has a 1 to many relationship with a product box
-
 
 
 ## REST API
@@ -148,6 +163,20 @@ Spring security can do:
 ### How to add spring security
 https://www.youtube.com/playlist?list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE
 
+## Scraping
+Use insomnia API tool to generate code for scraping. Then use the code in the application. 
+Insomnia will find the correct headers for the requests, and will identify any variables.
+
+### Hoogvliet
+The Promotion objects also contain ExpireDate and StartDate. These are not used in the application, Possible use in the future?
+
+The startdate should be checked if the promotion is still valid. If the startdate is in the future, the promotion is not valid yet.
+
+Some ideas:
+- Keep track of promotion products, and their expiration. Check only expired products. Also check promotions start dates if the promotion actually applies.
+- Hoogvliet has a promotion page. After importing all products, do daily checks on that page. If a product is not on the page anymore, remove the promotion from the product. If a new product is on the page, add the promotion to the product.
+- Do daily checks on the normal way of finding SKUs, to check for any new products, or removed products.
+- 
 
 
 
