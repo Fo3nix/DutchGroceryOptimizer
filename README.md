@@ -167,6 +167,18 @@ https://www.youtube.com/playlist?list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE
 Use insomnia API tool to generate code for scraping. Then use the code in the application. 
 Insomnia will find the correct headers for the requests, and will identify any variables.
 
+Using mitmproxy you can intercept requests to a private API.
+1. Download mitmproxy on PC
+2. Start mitmproxy
+3. Set proxy on phone to PC IPv4:8080 address in wifi settings
+4. Open mitm.it in browser
+5. Install certificate on phone
+6. Open app on phone
+
+Some apps do proxy checking.
+https://github.com/shroudedcode/apk-mitm This link has a program which removes that.
+Friga or other patchers could maybe also be used to change the apk.
+
 ### Hoogvliet
 The Promotion objects also contain ExpireDate and StartDate. These are not used in the application, Possible use in the future?
 
