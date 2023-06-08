@@ -180,7 +180,19 @@ https://github.com/shroudedcode/apk-mitm This link has a program which removes t
 Friga or other patchers could maybe also be used to change the apk.
 
 ### Hoogvliet
-The Promotion objects also contain ExpireDate and StartDate. These are not used in the application, Possible use in the future?
+Getting all categories: GET https://hvapp.hoogvliet.com/INTERSHOP/rest/WFS/org-webshop-Site/mobileapp/categories/schappen?region&view=tree&limit=1000
+Getting products per category: GET https://hvapp.hoogvliet.com/INTERSHOP/rest/WFS/org-webshop-Site/mobileapp/categories/schappen/100/products?offset=0&amount=8 
+Getting all products with basic information: GET http://navigator-group1.tweakwise.com/navigation/ed681b01/?tn_cid=999999&tn_p=1&tn_ps=20&format=json
+Getting set of products' info: PUT https://hvapp.hoogvliet.com/INTERSHOP/rest/WFS/org-webshop-Site/mobileapp/twproducts (you need to include json with {products:"sku1,sku2,sku3"})
+Getting product info: GET https://hvapp.hoogvliet.com/INTERSHOP/rest/WFS/org-webshop-Site/mobileapp/products/{sku}
+Getting promotions of the week URIs: GET https://hvapp.hoogvliet.com/INTERSHOP/rest/WFS/org-webshop-Site/mobileapp/promotionRange
+Getting promotions of a given week using URI: https://hvapp.hoogvliet.com/INTERSHOP/rest/WFS/{uri}
+
+The promotion are gotten per prmotion category with its own ID, name, etc. They contain a list of products that have that type of promotion. 
+Promotions itself are also part of the product info. 
+Products have an SKU, name, description, promotion, nutritional data, brand, baseUnit, unitvalue, in stock, some custom attributes, image url, listprice, salerprice.
+Promotions contain some customattributes(which contain some useful info like new prioce), startdate, enddate, title, description.
+Categories have a name, type, id, descirption, image link, subcategories, hasOnlineProducts, hasOnlineSubCategories, position. (there is also a category for aanbiedingen, which contain all promotions with links)
 
 The startdate should be checked if the promotion is still valid. If the startdate is in the future, the promotion is not valid yet.
 
@@ -188,7 +200,8 @@ Some ideas:
 - Keep track of promotion products, and their expiration. Check only expired products. Also check promotions start dates if the promotion actually applies.
 - Hoogvliet has a promotion page. After importing all products, do daily checks on that page. If a product is not on the page anymore, remove the promotion from the product. If a new product is on the page, add the promotion to the product.
 - Do daily checks on the normal way of finding SKUs, to check for any new products, or removed products.
-- 
+
+### Albert Heijn
 
 
 
